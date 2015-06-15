@@ -1,7 +1,7 @@
 private ["_pilots","_aircraft_nocopilot","_isPilot","_whitelist","_uid","_oldvehicle","_veh","_forbidden"];
 
 _pilots = ["B_Pilot_F"];
-_aircraft_nocopilot = ["Land_HelipadCircle_F", "B_Heli_Light_01_armed_F", "B_Heli_Attack_01_F", "B_Heli_Transport_01_camo_F", "B_Heli_Transport_01_camo_F"];
+_aircraft_nocopilot = ["Land_HelipadCircle_F", "B_Heli_Light_01_armed_F", "B_Heli_Attack_01_F", "B_Plane_CAS_01_F", "B_Heli_Transport_01_camo_F"];
 
 waitUntil {player == player};
 

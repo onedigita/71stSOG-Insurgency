@@ -58,5 +58,8 @@ ______________________________________________________*/
 	INS_ALPHA_SQUAD = ["Hitman1","Hitman2","Hitman3","Hitman4","Hitman5","Hitman6","Hitman7","Hitman8"];
 	INS_BRAVO_SQUAD = ["Hitman9","Hitman10","Hitman11","Hitman12","Hitman13","Hitman14","Hitman15","Hitman16"];
 	INS_CHARLIE_SQUAD = ["Hitman17","Hitman18","Hitman19","Hitman20","Hitman21","Hitman22","Hitman23","Hitman24"];
+	INS_DELTA_SQUAD = ["Hitman25","Hitman26","Hitman27","Hitman28","Hitman29","Hitman30","Hitman31","Hitman32"];
+	INS_XRAY_SQUAD = ["Hitman25","Hitman26","Hitman27","Hitman28","Hitman29","Hitman30","Hitman31","Hitman32"];
+	INS_ZULU_SQUAD = ["Spawn_into_AI_01","Spawn_into_AI_02","Spawn_into_AI_03"];
 
 // ====================================================================================

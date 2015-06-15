@@ -34,22 +34,20 @@ private ['_useVariableStamina','_useStumble'];
 
 //==================================================== CONFIG
 
-_useVariableStamina = FALSE;						// Does stamina factor in the players class? Set TRUE or FALSE. 
+_useVariableStamina = TRUE;						// Does stamina factor in the players class? Set TRUE or FALSE. 
 _useStumble = TRUE;								// Can the player stumble when very fatigued? Set TRUE or FALSE. Be careful when using, this may apply: http://feedback.arma3.com/view.php?id=22067
 
 // These classes have higher-than-normal stamina, if variable stamina used. Feel free to add or remove entries.
-// QS_fatigue_classes_highStamina = compileFinal '[
-//	"B_diver_TL_F","B_diver_exp_F","B_diver_F","B_recon_exp_F","B_recon_LAT_F",
-//	"B_recon_medic_F","B_recon_TL_F","B_recon_M_F","B_recon_F","B_recon_JTAC_F",
-//	"O_recon_exp_F","O_recon_LAT_F","O_recon_medic_F","O_recon_TL_F","O_recon_M_F",
-//	"O_recon_F","O_recon_JTAC_F","O_diver_TL_F","O_diver_exp_F","O_diver_F","I_diver_TL_F",
-//	"I_diver_exp_F","I_diver_F"
-// ]';
+ QS_fatigue_classes_highStamina = compileFinal '[
+	"B_soldier_AR_F","B_Soldier_F","B_medic_F","B_soldier_repair_F","B_soldier_AT_F","B_soldier_exp_F","B_Soldier_SL_F"
+ ]';
 
 // These classes have lower-than-normal stamina, if variable stamina used. Feel free to add or remove entries.
 QS_fatigue_classes_lowStamina = compileFinal '[
 	"B_pilot_F","B_helipilot_F","B_helicrew_F","O_pilot_F","O_helipilot_F","O_helicrew_F",
-	"I_pilot_F","I_helipilot_F","B_officer_F","O_officer_F","I_officer_F"
+	"I_pilot_F","I_helipilot_F","O_Soldier_SL_F","O_Soldier_F","O_soldier_exp_F","O_G_Soldier_F","O_G_Soldier_lite_F","O_G_Soldier_SL_F",
+	"O_G_Soldier_TL_F","O_G_Soldier_AR_F","O_G_medic_F","O_G_engineer_F","O_G_Soldier_exp_F","O_G_Soldier_GL_F","O_G_Soldier_M_F","O_G_Soldier_LAT_F",
+	"O_G_Soldier_A_F","O_G_officer_F"
 ]';
 
 //==================================================== FUNCTIONS
@@ -71,11 +69,6 @@ QS_fnc_fatigue = compileFinal "
 	_50mX = 0.9975;
 	_60mX = 1;
 
-	[] spawn {
-		hintSilent 'You are now using Quiksilvers Modified Fatigue.'; 
-		uiSleep 3; 
-		hintSilent '';
-	};
 	
 	if (_s) then {
 		_t = typeOf (vehicle player);

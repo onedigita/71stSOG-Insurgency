@@ -43,9 +43,6 @@ if (paramsArray select 2 == 1) then {
 	_null = [] spawn INS_fnc_CallToPrayer;
 };
 
-//--- Civilian vehicles
-//[5, 500, 1000] execVM "scripts\MAD_traffic.sqf";
-
 //--- Spawn Intel
 if (paramsArray select 7 == 1) then {
 	if (isServer || isDedicated) then {
@@ -54,9 +51,9 @@ if (paramsArray select 7 == 1) then {
 };
 
 //--- Create MHQ
- if (paramsArray select 11 == 1) then {
-	_null = execVM "scripts\wco\hze_fnc_MHQ.sqf";
-};
+// if (paramsArray select 11 == 1) then {
+//	_null = execVM "scripts\wco\hze_fnc_MHQ.sqf";
+//};
 
 //--- Enable map teleport on click
 if (ins_debug) then {
@@ -69,7 +66,11 @@ if (isServer || isDedicated) then {
 
 ["Insurgency | ALiVE - END OF INIT..."] call ALiVE_fnc_Dump;
 
+//--- Civilian vehicles
+//[2, 500, 1000] execVM "scripts\MAD_traffic.sqf";
 
+//--- bon recruits
+[] execVM "bon_recruit_units\init.sqf";
 
 //------Required for Headless Client
 if (!hasInterface && !isDedicated) then {
@@ -80,4 +81,4 @@ isHC = true;
 };
 
 //------Call to Move Units to the Headless Clients
-execVM "passToHCs.sqf";
+execVM "scripts\passToHCs.sqf";

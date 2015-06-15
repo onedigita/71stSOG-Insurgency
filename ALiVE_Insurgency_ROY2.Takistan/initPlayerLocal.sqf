@@ -43,19 +43,22 @@ if (isDedicated) exitWith {};
 waitUntil {!isNull player};
 
 //--- Run Pilot Check Script.
-if (paramsArray select 9 == 1) then {
-	_null = [] execVM "scripts\pilotCheck.sqf";
-};
+//if (paramsArray select 9 == 1) then {
+//	_null = [] execVM "scripts\pilotCheck.sqf";
+//};
 
 //--- Run Mission Breifing.
 _null = [] execVM "scripts\briefings\briefing.sqf";
 
 
+//--- Setup Radio Channel Names.
+_null = [] execVM "scripts\radios\setupWCORadios.sqf";
+
 //--- will cause to fall if fatigued
-[] execVM 'QS_Fatigue.sqf';
+//[] execVM 'scripts\QS_Fatigue.sqf';
 
 //--- 3rd person only for infantry
-[] execVM '3rdView_Restrictions.sqf';
+//[] execVM 'scripts\3rdView_Restrictions.sqf';
 
 "ELAPSED_TIME" addPublicVariableEventHandler {
 	[_this select 1] spawn {
@@ -74,22 +77,4 @@ _null = [] execVM "scripts\briefings\briefing.sqf";
 			};
 		};
     };
-};
-
-waitUntil {!isNull player};
-onMapSingleClick {_shift};
-player enableFatigue false;
-player addEventHandler ["respawn", {player enableFatigue false; onMapSingleClick "_shift"} ];
-if (side player == east) then {
-
-        [] spawn MB_fnc_randomUniform;
-        teleported = false;
-        teleportedPlayer = false;
-        player addAction ["Teleport", "opfor_teleporter_player.sqf"];
-        player addEventHandler ["respawn", {
-        [] spawn MB_fnc_randomUniform;
-        player addAction ["Teleport", "opfor_teleporter_player.sqf"];
-        }];
-        vestOn = false;
-        plcIEDactnState = false;
 };

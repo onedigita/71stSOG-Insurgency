@@ -25,13 +25,13 @@ ______________________________________________________*/
 class header {
 	gametype = COOP;
 	minplayers = 1;
-	maxplayers = 24;
+	maxplayers = 44;
 	playerCountMultipleOf = 1;  //Coop type missions use 1, Team type missions use 2
 };
 
 //--- Mission Title
-author = "Alive Dev Team | Mission by Hazey";
-onLoadMission = "Welcome to Insurgency | ALiVE. Find and destroy the hidden weapons caches. Use your map to find possible cache locations.";
+author = "Alive|Hazey|Roy|Jammin|Dixion|WarlordX07";
+onLoadMission = "An organized insurgence has risen in Takistan overthrowing the official government. Collect intel from enemy combatants and eliminate weapon caches.";
 onLoadIntroTime = true;
 onLoadMissionTime = true;
 onLoadName = Insurgency | ALiVE;
@@ -52,13 +52,20 @@ respawnDelay = 15;
 respawnDialog = 1;
 disabledAI = 1;
 respawnTemplates[] = {"MenuPosition"};
-respawnButton = 0;
+respawnButton = 1;
 respawnOnStart = 0;
+showMap	= 1;// Allow Map
 
-// JWC_CASFS
+//--- JWC_CASFS
 #include "JWC_CASFS\casDefine.hpp"
 #include "JWC_CASFS\casMenu.hpp"
 
+//---ATM AIRDROP
+#include "ATM_airdrop\dialog.hpp"
+
+//--- Bon recruits
+#include "bon_recruit_units\dialog\common.hpp"
+#include "bon_recruit_units\dialog\recruitment.hpp"
 
 //--- General Includes
 #include "scripts\radios\menuDefines.hpp"
@@ -76,7 +83,7 @@ class CfgUnitInsignia
 
 //--- Intro Sounds/ Others
 class CfgSounds {
-	sounds[] = {news, prayer, warning};
+	sounds[] = {news, prayer, warning, Vent, Vent2, Para};
 
 	class news {
 		name = "news";
@@ -96,11 +103,21 @@ class CfgSounds {
 		titles[] = {};
 	};
 	
-	class cantDo
-	{
-		name="cantDo";
-		sound[]={"JWC_CASFS\cantDo.ogg",1.0,1.0};
-		titles[]={};
+	class Vent 
+		{name="Vent";
+		sound[]={ATM_airdrop\data\Vent.ogg,db-11,1.0};
+		titles[] = {};
+	};
+	class Vent2
+		{name="Vent2";
+		sound[]={ATM_airdrop\data\Vent2.ogg,db-11,1.0};
+		titles[] = {};
+	};
+	
+	class Para 
+		{name="Para";
+		sound[]={ATM_airdrop\data\parachute.ogg,db-11,1.0};
+		titles[] = {};
 	};
 };
 
